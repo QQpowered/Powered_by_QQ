@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Web Page with JavaScript</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-        #message {
-            margin-top: 20px;
-            color: blue;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Signup / Login with Guest Mode</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 400px; margin: 40px auto; }
+    .hidden { display: none; }
+    h1 { margin-bottom: 10px; }
+    .icon-row {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .icon-button {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #333;
+      background: #f3f3f3;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+    }
+    .icon-button:hover {
+      background: #e0e0e0;
+    }
+    label { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 6px; margin-top: 4px; }
+    button { margin-top: 12px; padding: 8px 12px; }
+  </style>
 </head>
 <body>
-    <h1>大黄狗别看了知道是你</h1>
-    <p>Click the button below to see a message:</p>
-    <button onclick="showMessage()">点我</button>
-    <div id="message"></div>
+  <h1>Welcome</h1>
 
-    <script>
-        function showMessage() {
-            document.getElementById('message').innerText = "Powered by QQ_dog";
-        }
-    </script>
+  <!-- Icon row -->
+  <div class="icon-row">
+    <div id="icon-signup" class="icon-button">Sign up</div>
+    <div id="icon-login" class="icon-button">Log in</div>
+    <div id="icon-guest" class="icon-button">Continue as guest</div>
+  </div>
+
+  <!-- Sign up form -->
+  <div id="signup-section" class="hidden">
+    <h2>Sign up</h2>
+    <form id="signup-form">
+      <label>
+        Username
+        <input type="text" id="signup-username" required />
+      </label>
+      <label>
+        Password
+        <input type="password" id="signup-password" required />
+      </label>
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+
+  <!-- Login form -->
+  <div id="login-section" class="hidden">
+    <h2>Log in</h2>
+    <form id="login-form">
+      <label>
+        Username
+        <input type="text" id="login-username" required />
+      </label>
+      <label>
+        Password
+        <input type="password" id="login-password" required />
+      </label>
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+
+  <!-- Main app section (logged‑in user) -->
+  <div id="app-section" class="hidden">
+    <p id="status"></p>
+    <button id="logout-button">Log out</button>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
-
-
+powered by QQ
